@@ -9,15 +9,16 @@
                     <Input type="password" placeholder="密码" v-model="params.password"></Input>
                 </FormItem>
             </Form>
-            <el-button plain>登录</el-button>
+            <el-button plain @click="loginOk">登录</el-button>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'vue-property-decorator';
-    import { Form, FormItem, Input, Button } from 'element-ui';
-    import { LoginParams } from '@/type';
+    import { Component, Emit, Vue } from 'vue-property-decorator';
+    import {Form, FormItem, Input, Button, Message} from 'element-ui';
+    import { LoginParams, UserInfo } from '@/type';
+    import config from '@/utils/config';
 
     @Component({
         components: {
@@ -33,6 +34,38 @@
             email: '',
             password: '',
         };
+
+        private loginOk(): void {
+            const reg = new RegExp(
+                '^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$',
+            );
+            if (!this.params.email) {
+                Message.warning('邮箱不能为空！');
+                return;
+            } else if (!reg.test(this.params.email)) {
+                Message.warning('邮箱格式不对！');
+                return;
+            } else if (!this.params.password) {
+                Message.warning('密码不能为空！');
+                return;
+            }
+            this.submit();
+        }
+
+        @Emit('OK')
+        private async submit(): Promise<void> {
+            const data: UserInfo = await this.$https.post(
+                this.$urls.login,
+                this.params,
+            );
+            const userInfo: UserInfo = {
+                _id: data._id,
+                name: data.name,
+                avatar: data.avatar,
+            };
+            window.sessionStorage.userInfo = JSON.stringify(userInfo);
+            Message.success('登录成功');
+        }
     }
 </script>
 
