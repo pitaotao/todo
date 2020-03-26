@@ -10,6 +10,7 @@ import service from '@/utils/https';
 Vue.config.productionTip = false;
 Vue.prototype.$urls = urls; // 其他页面在使用 URLS 的时候直接  this.$urls 就可以了
 Vue.prototype.$https = service; // 其他页面在使用 axios 的时候直接  this.$http 就可以了
+Vue.prototype.$Message = Message;
 
 Vue.component(Input.name, Input);
 Vue.component(Button.name, Button);

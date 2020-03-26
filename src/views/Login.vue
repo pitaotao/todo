@@ -54,16 +54,16 @@
 
         @Emit('OK')
         private async submit(): Promise<void> {
-            const data: UserInfo = await this.$https.post(
-                this.$urls.login,
-                this.params,
-            );
-            const userInfo: UserInfo = {
-                _id: data._id,
-                name: data.name,
-                avatar: data.avatar,
-            };
-            window.sessionStorage.userInfo = JSON.stringify(userInfo);
+            // const data: UserInfo = await this.$https.post(
+            //     this.$urls.login,
+            //     this.params,
+            // );
+            // const userInfo: UserInfo = {
+            //     _id: data._id,
+            //     name: data.name,
+            //     avatar: data.avatar,
+            // };
+            // window.sessionStorage.userInfo = JSON.stringify(userInfo);
             Message.success('登录成功');
         }
     }

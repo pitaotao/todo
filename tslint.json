@@ -15,6 +15,7 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [true, "single"],
-    "no-console": false
+    "no-console": false,
+    "arrow-parens": true  //箭头函数定义的参数需要括号
   }
 }
