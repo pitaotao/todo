@@ -13,7 +13,7 @@ const initPageState = () => {
   };
 };
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state: initPageState,
   mutations: {
@@ -28,3 +28,5 @@ export default new Vuex.Store({
     user,
   },
 });
+
+export default store;
