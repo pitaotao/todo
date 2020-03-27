@@ -10,6 +10,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "noImplicitThis": false,  // 忽略 this 的类型检查
     "baseUrl": ".",
     "types": [
       "webpack-env"

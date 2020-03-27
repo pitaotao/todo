@@ -4,7 +4,7 @@
 //     let last = 0,
 //         timer: any = null;
 //     // 将throttle处理结果当作函数返回
-//     return function () {
+//     return function() {
 //         // 保留调用时的this上下文
 //         let context = this;
 //         // 保留调用时传入的参数
@@ -147,10 +147,10 @@
 // }
 //
 // // 判断是移动端还是 pc 端 ，true 表示是移动端，false 表示是 pc 端
-// export function isMobileOrPc() {
-//     if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+export function isMobileOrPc() {
+    if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        return true;
+    } else {
+        return false;
+    }
+}

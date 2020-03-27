@@ -1,17 +1,30 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import state from './states';
-import mutations from './mutations';
-import actions from './actions';
-import getters from './getters';
+import user from '@/store/modules/user';
 
 Vue.use(Vuex);
 
+const initPageState = () => {
+  return {
+    // user: {
+    //   username: "",
+    //   password: ""
+    // }
+  };
+};
+
 export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-  getters,
+  strict: process.env.NODE_ENV !== 'production',
+  state: initPageState,
+  mutations: {
+    // [types.SET_USER](state, pageState = {}) {
+    //   for (const prop in pageState) {
+    //     state[prop] = pageState[prop];
+    //   }
+    // }
+  },
+  actions: {},
   modules: {
+    user,
   },
 });

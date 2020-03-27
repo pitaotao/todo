@@ -16,7 +16,7 @@ const mockData: any = {
             msg: '操作成功',
             data: {
                 'count': '@natural(10, 100000)',
-                'list|1-10': [
+                'login|1-10': [
                     {
                         email: /^[a-z0-9]+([._\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/,
                         password: '@natural(10, 100000)',
@@ -34,6 +34,7 @@ const mockTest = (url: any) => {
     for (const key in mockData) {
         if (mockData[key].debug === true && url[key] !== undefined) {
             Mock.mock(url[key], mockData[key].data);
+            console.log('mockData[key]', mockData[key]);
             console.log('urls[key]', url[key]);
         }
     }

@@ -16,9 +16,8 @@
 
 <script lang="ts">
     import { Component, Emit, Vue } from 'vue-property-decorator';
-    import {Form, FormItem, Input, Button, Message} from 'element-ui';
+    import { Form, FormItem, Input, Button, Message } from 'element-ui';
     import { LoginParams, UserInfo } from '@/type';
-    import config from '@/utils/config';
 
     @Component({
         components: {
@@ -69,7 +68,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
     .login {
         position:fixed;
         top: 0;

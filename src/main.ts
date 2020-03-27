@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import { Button, Input, Form, FormItem, Message } from 'element-ui';
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 import 'lib-flexible/flexible.js';
 import urls from '@/utils/urls';
 import service from '@/utils/https';
@@ -17,6 +18,7 @@ Vue.component(Button.name, Button);
 Vue.component(Form.name, Form);
 Vue.component(FormItem.name, FormItem);
 Vue.component(Message.name, Message);
+Vue.component(CollapseTransition.name, CollapseTransition);
 
 new Vue({
   router,
