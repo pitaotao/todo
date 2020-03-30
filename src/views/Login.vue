@@ -1,32 +1,24 @@
 <template>
     <div class="login">
         <div class="login_box">
-            <Form>
-                <FormItem label="邮箱" :label-width="formLabelWidth">
-                    <Input  placeholder="邮箱" v-model="params.email" clearable></Input>
-                </FormItem>
-                <FormItem label="密码" :label-width="formLabelWidth">
-                    <Input type="password" placeholder="密码" v-model="params.password"></Input>
-                </FormItem>
-            </Form>
-            <el-button plain @click="loginOk">登录</el-button>
+            <el-form>
+                <el-form-item label="邮箱" :label-width="formLabelWidth">
+                    <el-input  placeholder="邮箱" v-model="params.email" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="密码" :label-width="formLabelWidth">
+                    <el-input type="password" placeholder="密码" v-model="params.password"></el-input>
+                </el-form-item>
+            </el-form >
+            <el-button @click="loginOk">登录</el-button>
         </div>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Emit, Vue } from 'vue-property-decorator';
-    import { Form, FormItem, Input, Button, Message } from 'element-ui';
     import { LoginParams, UserInfo } from '@/type';
 
-    @Component({
-        components: {
-            Form,
-            FormItem,
-            Input,
-            Button,
-        },
-    })
+    @Component
     export default class Login extends Vue {
         private formLabelWidth: string = '60px';
         private params: LoginParams = {
@@ -39,13 +31,13 @@
                 '^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$',
             );
             if (!this.params.email) {
-                Message.warning('邮箱不能为空！');
+                this.$Message.warning('邮箱不能为空！');
                 return;
             } else if (!reg.test(this.params.email)) {
-                Message.warning('邮箱格式不对！');
+                this.$Message.warning('邮箱格式不对！');
                 return;
             } else if (!this.params.password) {
-                Message.warning('密码不能为空！');
+                this.$Message.warning('密码不能为空！');
                 return;
             }
             this.submit();
@@ -63,7 +55,7 @@
             //     avatar: data.avatar,
             // };
             // window.sessionStorage.userInfo = JSON.stringify(userInfo);
-            Message.success('登录成功');
+            this.$Message.success('登录成功');
         }
     }
 </script>
