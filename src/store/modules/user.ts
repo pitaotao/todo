@@ -1,5 +1,5 @@
 import * as types from '../types';
-import {SAVE_USER} from '../types';
+// import {SAVE_USER} from '../types';
 
 const initPageState = () => {
     return {

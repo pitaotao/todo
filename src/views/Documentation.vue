@@ -1,17 +1,16 @@
 <template>
-  <div class="Index">
-    <div>项目页</div>
-  </div>
+    <div class="Documentation">
+        <div>文档页</div>
+    </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
 
     @Component
-    export default class Index extends Vue {
+    export default class Documentation extends Vue {
 
     }
-
 </script>
 
 <style scoped>

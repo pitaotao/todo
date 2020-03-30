@@ -56,6 +56,7 @@
             // };
             // window.sessionStorage.userInfo = JSON.stringify(userInfo);
             this.$Message.success('登录成功');
+            this.$router.push('/');
         }
     }
 </script>
