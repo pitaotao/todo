@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
-    <Sidebar></Sidebar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue, Watch } from 'vue-property-decorator';
   import { isMobileOrPc } from '@/utils/utils';
-  import Sidebar from '@/components/Sidebar.vue';
 
   // 移动端 rem 单位适配
   if (isMobileOrPc()) {
@@ -19,11 +17,7 @@
             width / 7.5 + 'px';
   }
 
-  @Component({
-    components: {
-      Sidebar,
-    },
-  })
+  @Component
   export default class App extends Vue {
 
   }

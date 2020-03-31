@@ -1,6 +1,6 @@
 <template>
     <div class="News">
-        <div>消息页</div>
+        <h1>消息页</h1>
     </div>
 </template>
 

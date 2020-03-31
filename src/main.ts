@@ -3,7 +3,22 @@ import App from './App.vue';
 import router from './router';
 import { Component } from 'vue-property-decorator';
 import store from './store';
-import { Button, Input, Form, FormItem, Message, Menu, RadioGroup, RadioButton, Submenu, MenuItem, MenuItemGroup } from 'element-ui';
+import { Button,
+  Input,
+  Form,
+  FormItem,
+  Message,
+  Menu,
+  RadioGroup,
+  RadioButton,
+  Submenu,
+  MenuItem,
+  MenuItemGroup,
+  Select,
+  Col,
+  Option,
+  Icon,
+} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 import 'lib-flexible/flexible.js';
@@ -27,6 +42,10 @@ Vue.component(MenuItem.name, MenuItem);
 Vue.component(MenuItemGroup.name, MenuItemGroup);
 Vue.component(RadioButton.name, RadioButton);
 Vue.component(RadioGroup.name, RadioGroup);
+Vue.component(Select.name, Select);
+Vue.component(Col.name, Col);
+Vue.component(Option.name, Option);
+Vue.component(Icon.name, Icon);
 Vue.component(CollapseTransition.name, CollapseTransition);
 
 Component.registerHooks([

@@ -1,6 +1,6 @@
 <template>
   <div class="Index">
-    <div>项目页</div>
+    <h1>项目页</h1>
   </div>
 </template>
 

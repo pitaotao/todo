@@ -1,6 +1,6 @@
 <template>
     <div class="Documentation">
-        <div>文档页</div>
+        <h1>文档页</h1>
     </div>
 </template>
 

@@ -8,3 +8,9 @@ export interface UserInfo {
     name: string;
     avatar: string | any;
 }
+
+// 首页
+export interface OptionInfo {
+    icon: string;
+    value: string;
+}

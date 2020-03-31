@@ -24,6 +24,7 @@
                 <span slot="title">消息</span>
             </el-menu-item>
         </el-menu>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -46,7 +47,7 @@
             } else if (index === 2) {
                 this.$router.push({path: '/documentation'});
             } else if (index === 3) {
-                this.$router.push({path: '/'});
+                this.$router.push({path: '/index'});
             } else if (index === 4) {
                 this.$router.push({path: '/news'});
             }
@@ -62,6 +63,9 @@
     .el-menu--collapse {
         width: 64px;
         height: 100vh;
+    }
+    .Sidebar{
+        display: flex;
     }
     .Sidebar i {
         color: #ffffff;
