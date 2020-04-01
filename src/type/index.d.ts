@@ -9,8 +9,17 @@ export interface UserInfo {
     avatar: string | any;
 }
 
-// 首页
+// 工作台
 export interface OptionInfo {
     icon: string;
     value: string;
+}
+export interface TableInfo {
+    ID: number;
+    title: string;
+    type: string;
+    iteration: string;
+    priority: string;
+    handler: string;
+    founder: string;
 }

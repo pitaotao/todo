@@ -18,6 +18,8 @@ import { Button,
   Col,
   Option,
   Icon,
+  Table,
+  TableColumn,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
@@ -46,6 +48,8 @@ Vue.component(Select.name, Select);
 Vue.component(Col.name, Col);
 Vue.component(Option.name, Option);
 Vue.component(Icon.name, Icon);
+Vue.component(Table.name, Table);
+Vue.component(TableColumn.name, TableColumn);
 Vue.component(CollapseTransition.name, CollapseTransition);
 
 Component.registerHooks([
