@@ -20,6 +20,10 @@ import { Button,
   Icon,
   Table,
   TableColumn,
+  Upload,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
@@ -50,6 +54,10 @@ Vue.component(Option.name, Option);
 Vue.component(Icon.name, Icon);
 Vue.component(Table.name, Table);
 Vue.component(TableColumn.name, TableColumn);
+Vue.component(Upload.name, Upload);
+Vue.component(Dropdown.name, Dropdown);
+Vue.component(DropdownMenu.name, DropdownMenu);
+Vue.component(DropdownItem.name, DropdownItem);
 Vue.component(CollapseTransition.name, CollapseTransition);
 
 Component.registerHooks([
