@@ -23,3 +23,31 @@ export interface TableInfo {
     handler: string;
     founder: string;
 }
+
+// 我的文档
+export interface NewAdd {
+    name: string;
+}
+export interface BarsInfo {
+    icon: string;
+    value: string;
+}
+export interface DocumentTypeInfo {
+    value: string;
+}
+export interface CategoryInfo {
+    value: string;
+}
+export interface TableDataInfo {
+    icon: string;
+    title: string;
+    date: string;
+    name: string;
+}
+export interface ViewedInfo {
+    icon: string;
+    title: string;
+    belong: string;
+    date: string;
+    name: string;
+}

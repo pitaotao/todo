@@ -7,15 +7,7 @@ const commonRouter = [
         children: [
             {path: 'index', name: 'Index', component: () => import('@/views/Index.vue')},
             {path: 'workbench', name: 'Workbench', component: () => import('@/views/Workbench.vue')},
-            {
-                path: 'documentation',
-                name: 'Documentation',
-                component: () => import('@/views/Documentation.vue'),
-                redirect: 'documentation/AboutMyDocument',
-                children: [
-                    {path: '/documentation/AboutMyDocument/:index', name: 'AboutMyDocument', component: () => import('@/components/AboutMyDocument.vue')},
-                ],
-            },
+            {path: 'documentation', name: 'Documentation', component: () => import('@/views/Documentation.vue')},
             {path: 'news', name: 'News', component: () => import('@/views/News.vue')},
         ],
     },
