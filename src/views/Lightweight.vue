@@ -1,17 +1,16 @@
 <template>
-  <div class="Index">
-    <h1>项目页</h1>
-  </div>
+    <div class="Lightweight">
+        <div>轻量团队看板</div>
+    </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
 
     @Component
-    export default class Index extends Vue {
+    export default class Lightweight extends Vue {
 
     }
-
 </script>
 
 <style scoped>

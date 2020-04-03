@@ -51,3 +51,12 @@ export interface ViewedInfo {
     date: string;
     name: string;
 }
+export interface StatusListInfo {
+    name: string;
+    img: string;
+}
+
+// 我的项目
+export  interface ShrewdNavInfo {
+    name: string;
+}

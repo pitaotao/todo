@@ -136,8 +136,19 @@
         private dovCateVal(index: number): void {
             this.current = index;
         }
-        private handleSelectionChange(val: any): void {
+        @Emit('type')private send(type: boolean): boolean {
+            console.log(type);
+            return type;
+        }
+        private handleSelectionChange(val: any): any {
             this.multipleSelection = val;
+            console.log(this.multipleSelection);
+            if (this.multipleSelection.length === 0) {
+                this.send(false);
+            } else {
+                this.send(true);
+            }
+
         }
     }
 </script>

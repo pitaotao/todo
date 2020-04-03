@@ -38,7 +38,7 @@
             </div>
             <div class="document_box_line"></div>
             <div class="document_box_right">
-                <AboutMyDocument :pageId="pageId"></AboutMyDocument>
+                <AboutMyDocument :pageId="pageId" @type="btnType"></AboutMyDocument>
             </div>
         </div>
 
@@ -114,6 +114,9 @@
         private handleDocument(index: any): void {
             this.idx = index;
             this.pageId = index;
+        }
+        private btnType(val: any): void {
+            this.deleteBtn = val;
         }
     }
 </script>
