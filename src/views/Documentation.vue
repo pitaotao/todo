@@ -151,7 +151,7 @@
         position: fixed;
         z-index: 99;
         top: 40px;
-        left: 62px;
+        left: 64px;
         right: 0;
         background-color: #fff;
     }

@@ -27,6 +27,7 @@ import { Button,
   Dialog,
   Radio,
   Popover,
+  Avatar,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
@@ -64,6 +65,7 @@ Vue.component(DropdownItem.name, DropdownItem);
 Vue.component(Dialog.name, Dialog);
 Vue.component(Radio.name, Radio);
 Vue.component(Popover.name, Popover);
+Vue.component(Avatar.name, Avatar);
 Vue.component(CollapseTransition.name, CollapseTransition);
 
 Component.registerHooks([

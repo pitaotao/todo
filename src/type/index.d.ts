@@ -57,6 +57,13 @@ export interface StatusListInfo {
 }
 
 // 我的项目
-export  interface ShrewdNavInfo {
+export interface ShrewdNavInfo {
+    name: string;
+}
+
+
+// 我的
+export interface PersonBarInfo {
+    icon: string;
     name: string;
 }

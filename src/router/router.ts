@@ -10,6 +10,17 @@ const commonRouter = [
             {path: 'news', name: 'News', component: () => import('@/views/News.vue')},
             {path: 'shrewd', name: 'Shrewd', component: () => import('@/views/Shrewd.vue')},
             {path: 'lightweight', name: 'Lightweight', component: () => import('@/views/Lightweight.vue')},
+            {
+                path: '/personal',
+                name: 'Personal',
+                component: () => import('@/views/Personal.vue'),
+                redirect: 'dynamic',
+                children: [
+                    {path: 'dynamic', name: 'Dynamic', component: () => import('@/views/Dynamic.vue')},
+                    {path: 'personSet', name: 'PersonSet', component: () => import('@/views/PersonSet.vue')},
+                    {path: 'problemFeedback', name: 'ProblemFeedback', component: () => import('@/views/ProblemFeedback.vue')},
+                ],
+            },
         ],
     },
     {

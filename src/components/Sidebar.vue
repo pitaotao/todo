@@ -43,6 +43,21 @@
                 <i class="el-icon-bell"></i>
                 <span slot="title">消息</span>
             </el-menu-item>
+            <el-popover
+                    placement="right"
+                    width="158"
+                    trigger="click">
+                <div class="personal-setting-menu">
+                    <ul>
+                        <li @click="jumpPersonal(1)"><i class="el-icon-data-analysis"></i>我的动态</li>
+                        <li @click="jumpPersonal(2)"><i class="el-icon-setting"></i>个人设置</li>
+                        <li @click="jumpPersonal(3)"><i class="el-icon-question"></i>问题反馈</li>
+                        <li><i class="el-icon-back"></i>退出登录</li>
+                    </ul>
+                </div>
+                <el-avatar slot="reference" icon="el-icon-user-solid"></el-avatar>
+            </el-popover>
+
         </el-menu>
         <router-view></router-view>
     </div>
@@ -90,6 +105,15 @@
                 // this.$router.push({path: '/index'});
             } else if (index === 4) {
                 this.$router.push({path: '/news'});
+            }
+        }
+        private jumpPersonal(val: number): void {
+            if (val === 1) {
+                this.$router.push({path: '/personal/dynamic?current=0'});
+            } else if (val === 2) {
+                this.$router.push({path: '/personal/personSet?current=1'});
+            } else if (val === 3) {
+                this.$router.push({path: '/personal/problemFeedback?current=2'});
             }
         }
     }
@@ -175,5 +199,37 @@
         padding: 9px 0;
         border-radius: 2px;
         margin-top: 20px;
+    }
+    .Sidebar .el-avatar {
+        position: absolute;
+        bottom: 100px;
+        left: 12px;
+    }
+    .Sidebar .el-avatar:hover {
+        background-color: rgb(34, 83, 161);
+    }
+    .personal-setting-menu {
+        li {
+            padding-left: 20px;
+            background-color: transparent;
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+            line-height: 37px;
+            cursor: pointer;
+            i {
+                font-size: 16px;
+                color: #ccc;
+                margin-right: 10px;
+                margin-top: 0;
+                height: auto;
+            }
+        }
+        li:hover {
+            color: #4f90f7;
+            i {
+                color: #4f90f7;
+            }
+        }
     }
 </style>
