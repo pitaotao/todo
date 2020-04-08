@@ -16,12 +16,13 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue, Watch } from 'vue-property-decorator';
     import { PersonBarInfo } from '@/type/index.d.ts';
 
     @Component
     export default class Personal extends Vue {
         private current: number = 0;
+        private pjtid: any = '';
         private bars: PersonBarInfo[] = [
             {
                 icon: 'el-icon-data-analysis',
@@ -38,19 +39,35 @@
         ];
         private clickBar(index: number): void {
             this.current = index;
-            if (this.$route.query.current === '0' || index === 0) {
+            if (index === 0) {
                 this.$router.push({path: 'dynamic'});
-            } else if (this.$route.query.current === '1' || index === 1) {
+            } else if (index === 1) {
                 this.$router.push({path: 'personSet'});
-            } else if (this.$route.query.current === '2' || index === 2) {
+            } else if (index === 2) {
                 this.$router.push({path: 'problemFeedback'});
             }
         }
+        @Watch('$route')
+        private routechange(to: any, from: any) {
+            if (to.name === 'Dynamic') {
+                this.current = 0;
+            } else if (to.name === 'PersonSet') {
+                this.current = 1;
+            } else if (to.name === 'ProblemFeedback') {
+                this.current = 2;
+            }
+        }
+
+
+
 
     }
 </script>
 
 <style scoped lang="less">
+    .Personal {
+        display: flex;
+    }
     .person_bar {
         margin-top: -2px;
         position: relative;
@@ -89,6 +106,7 @@
                 line-height: 20px;
                 text-decoration: none;
                 cursor: pointer;
+                background: #fff;
                 i {
                     margin-right: 8px;
                     vertical-align: top;

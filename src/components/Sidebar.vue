@@ -109,11 +109,11 @@
         }
         private jumpPersonal(val: number): void {
             if (val === 1) {
-                this.$router.push({path: '/personal/dynamic?current=0'});
+                this.$router.push({path: 'dynamic'});
             } else if (val === 2) {
-                this.$router.push({path: '/personal/personSet?current=1'});
+                this.$router.push({path: 'personSet'});
             } else if (val === 3) {
-                this.$router.push({path: '/personal/problemFeedback?current=2'});
+                this.$router.push({path: 'problemFeedback'});
             }
         }
     }

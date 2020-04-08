@@ -67,3 +67,16 @@ export interface PersonBarInfo {
     icon: string;
     name: string;
 }
+export interface FollowNotificInfo {
+    title: string;
+    label: object[];
+}
+export interface BasicInfo {
+    name: string;
+    realName: string;
+    sex: string;
+    position: string;
+}
+export interface AccountSecurityInfo {
+    pass: string;
+}

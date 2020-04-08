@@ -19,6 +19,8 @@ const commonRouter = [
                     {path: 'dynamic', name: 'Dynamic', component: () => import('@/views/Dynamic.vue')},
                     {path: 'personSet', name: 'PersonSet', component: () => import('@/views/PersonSet.vue')},
                     {path: 'problemFeedback', name: 'ProblemFeedback', component: () => import('@/views/ProblemFeedback.vue')},
+                    {path: 'followNotification', name: 'FollowNotification', component: () => import('@/views/FollowNotification.vue')},
+                    {path: 'personalInformation', name: 'PersonalInformation', component: () => import('@/views/PersonalInformation.vue')},
                 ],
             },
         ],

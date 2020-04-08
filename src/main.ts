@@ -28,6 +28,11 @@ import { Button,
   Radio,
   Popover,
   Avatar,
+  Checkbox,
+  CheckboxButton,
+  CheckboxGroup,
+  Tabs,
+  TabPane,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
@@ -66,6 +71,11 @@ Vue.component(Dialog.name, Dialog);
 Vue.component(Radio.name, Radio);
 Vue.component(Popover.name, Popover);
 Vue.component(Avatar.name, Avatar);
+Vue.component(Checkbox.name, Checkbox);
+Vue.component(CheckboxButton.name, CheckboxButton);
+Vue.component(CheckboxGroup.name, CheckboxGroup);
+Vue.component(Tabs.name, Tabs);
+Vue.component(TabPane.name, TabPane);
 Vue.component(CollapseTransition.name, CollapseTransition);
 
 Component.registerHooks([
