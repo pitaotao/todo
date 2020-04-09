@@ -52,10 +52,12 @@
                         <li @click="jumpPersonal(1)"><i class="el-icon-data-analysis"></i>我的动态</li>
                         <li @click="jumpPersonal(2)"><i class="el-icon-setting"></i>个人设置</li>
                         <li @click="jumpPersonal(3)"><i class="el-icon-question"></i>问题反馈</li>
-                        <li><i class="el-icon-back"></i>退出登录</li>
+                        <li @click="logoutLogin"><i class="el-icon-back"></i>退出登录</li>
                     </ul>
                 </div>
-                <el-avatar slot="reference" icon="el-icon-user-solid"></el-avatar>
+                <div class="avatar" slot="reference">
+                    <img v-if="!avatar" src="../assets/avatar.png" alt="">
+                </div>
             </el-popover>
 
         </el-menu>
@@ -66,11 +68,13 @@
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
     import { StatusListInfo } from '@/type/index.d.ts';
+    import { Action } from 'vuex-class';
 
     @Component
     export default class Sidebar extends Vue {
+        @Action private saveUser!: any;
         private isCollapse: boolean = true;
-
+        private avatar: boolean = false;
         private statusList: StatusListInfo[] = [
             {
                 name: '敏捷研发管理',
@@ -109,11 +113,31 @@
         }
         private jumpPersonal(val: number): void {
             if (val === 1) {
-                this.$router.push({path: 'dynamic'});
+                this.$router.push({path: 'personal/dynamic'});
             } else if (val === 2) {
-                this.$router.push({path: 'personSet'});
+                this.$router.push({path: 'personal/personSet'});
             } else if (val === 3) {
-                this.$router.push({path: 'problemFeedback'});
+                this.$router.push({path: 'personal/problemFeedback'});
+            }
+        }
+        // 退出登录
+        private logoutLogin(): void {
+            localStorage.setItem('userInfo', '');
+            this.saveUser({
+                isLogin: false,
+                userLogin: {
+                    email: '',
+                    password: '',
+                },
+            });
+            this.$router.push('/login');
+        }
+        private created(): void {
+            const userInfo = localStorage.getItem('userInfo');
+            if (userInfo && userInfo !== 'undefined' && userInfo !== 'null') {
+                const useAvatarInfo = JSON.parse(userInfo);
+                this.avatar = useAvatarInfo.defaultAvatar;
+                console.log(this.avatar);
             }
         }
     }
@@ -200,14 +224,6 @@
         border-radius: 2px;
         margin-top: 20px;
     }
-    .Sidebar .el-avatar {
-        position: absolute;
-        bottom: 100px;
-        left: 12px;
-    }
-    .Sidebar .el-avatar:hover {
-        background-color: rgb(34, 83, 161);
-    }
     .personal-setting-menu {
         li {
             padding-left: 20px;
@@ -230,6 +246,17 @@
             i {
                 color: #4f90f7;
             }
+        }
+    }
+    .avatar {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        bottom: 100px;
+        left: 12px;
+        img {
+            width: 100%;
+            height: 100%;
         }
     }
 </style>

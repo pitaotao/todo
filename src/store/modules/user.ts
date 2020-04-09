@@ -1,12 +1,11 @@
 import * as types from '../types';
-// import {SAVE_USER} from '../types';
 
 const initPageState = () => {
     return {
-        userInfo: {
-            id: '',
-            name: '',
-            avatar: '',
+        isLogin: false,  // 判断是否登录
+        userLogin: {  // 用户登录信息
+            email: '',
+            password: '',
         },
     };
 };
@@ -14,13 +13,25 @@ const initPageState = () => {
 const user = {
   state: initPageState(),
   mutations: {
-    [types.SAVE_USER](state: object | any, pageState: object | any) {
-        // for (const prop in pageState) {
-        //     state[prop] = pageState[prop];
-        // }
-    },
+      saveUser(state: object | any, userLogin: object | any): void {
+          state.isLogin = true;
+          state.userLogin = userLogin;
+      },
   },
-  actions: {},
+  actions: {
+      saveUser({commit}: any, payload: object | any): void {
+          commit('saveUser', payload);
+      },
+  },
+  getters: {
+      isLogin(state: any): any {
+        if (state.userLogin.email !== '') {
+            return true;
+        } else {
+            return false;
+        }
+      },
+  },
 };
 
 export default  user;

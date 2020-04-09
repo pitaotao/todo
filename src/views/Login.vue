@@ -17,6 +17,7 @@
 <script lang="ts">
     import { Component, Emit, Vue } from 'vue-property-decorator';
     import { LoginParams, UserInfo } from '@/type';
+    import { Action } from 'vuex-class';
 
     @Component
     export default class Login extends Vue {
@@ -25,7 +26,7 @@
             email: '',
             password: '',
         };
-
+        @Action private saveUser!: any;
         private loginOk(): void {
             const reg = new RegExp(
                 '^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$',
@@ -45,16 +46,13 @@
 
         @Emit('OK')
         private async submit(): Promise<void> {
-            // const data: UserInfo = await this.$https.post(
-            //     this.$urls.login,
-            //     this.params,
-            // );
-            // const userInfo: UserInfo = {
-            //     _id: data._id,
-            //     name: data.name,
-            //     avatar: data.avatar,
-            // };
-            // window.sessionStorage.userInfo = JSON.stringify(userInfo);
+            const userInfo: UserInfo = {
+                email: this.params.email,
+                name: '',
+                defaultAvatar: false,
+            };
+            this.saveUser(this.params);
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
             this.$Message.success('登录成功');
             this.$router.push('/');
         }

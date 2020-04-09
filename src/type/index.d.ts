@@ -4,9 +4,9 @@ export interface LoginParams {
     password: string;
 }
 export interface UserInfo {
-    _id: string;
+    email: string;
     name: string;
-    avatar: string | any;
+    defaultAvatar: boolean;
 }
 
 // 工作台
