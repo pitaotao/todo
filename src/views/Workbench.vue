@@ -77,9 +77,11 @@
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
     import { OptionInfo, TableInfo } from '@/type';
+    import { State } from 'vuex-class';
 
     @Component
     export default class Workbench extends Vue {
+        @State private isLogin!: boolean;
         private value: string = '';
         private OptionValue: OptionInfo[] = [
             {
@@ -119,6 +121,11 @@
                 founder: '屁桃',
             },
         ];
+        private created(): void {
+            if (!this.isLogin) {
+                // this.$router.push('/login');
+            }
+        }
     }
 </script>
 

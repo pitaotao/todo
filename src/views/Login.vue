@@ -46,6 +46,7 @@
 
         @Emit('OK')
         private async submit(): Promise<void> {
+            this.$router.push('/');
             const userInfo: UserInfo = {
                 email: this.params.email,
                 name: '',
@@ -54,7 +55,7 @@
             this.saveUser(this.params);
             localStorage.setItem('userInfo', JSON.stringify(userInfo));
             this.$Message.success('登录成功');
-            this.$router.push('/');
+
         }
     }
 </script>

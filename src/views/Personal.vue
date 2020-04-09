@@ -49,6 +49,7 @@
         }
         @Watch('$route')
         private routechange(to: any, from: any) {
+            console.log(to);
             if (to.name === 'Dynamic') {
                 this.current = 0;
             } else if (to.name === 'PersonSet') {
