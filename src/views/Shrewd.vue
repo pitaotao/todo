@@ -8,7 +8,17 @@
                 <span>敏捷研发管理</span>
             </div>
             <div class="shrewd_nav">
-                <div class="shrewd_add"> <i class="el-icon-plus"></i> </div>
+                <el-popover
+                        placement="bottom"
+                        width="120"
+                        trigger="hover">
+                    <ul class="create_nav_content">
+                        <li>创建缺陷</li>
+                        <li>创建需求</li>
+                        <li>创建迭代</li>
+                    </ul>
+                    <div class="shrewd_add" slot="reference"> <i class="el-icon-plus"></i> </div>
+                </el-popover>
                 <ul>
                     <li v-for="(item, index) in navs" :key="index" @click="itemNav(index)" :class="{select_yes: index==idx}">
                         {{item.name}}
@@ -16,8 +26,16 @@
                 </ul>
             </div>
             <div class="shrewd_search_box">
-
+                <el-input
+                        placeholder="搜索"
+                        suffix-icon="el-icon-search"
+                        v-model="search">
+                </el-input>
             </div>
+        </div>
+        <div class="content_center">
+            <el-button type="primary" icon="el-icon-plus">创建需求</el-button>
+            <el-button type="primary">更多操作<i class="el-icon-arrow-down el-icon--right"></i></el-button>
         </div>
 
     </div>
@@ -29,6 +47,7 @@
 
     @Component
     export default class Shrewd extends Vue {
+        private search: string = '';
         private navs: ShrewdNavInfo[] = [
             {
                 name: '需求',
@@ -153,8 +172,29 @@
         }
 
     }
+    .create_nav_content {
+        li {
+            cursor: pointer;
+            padding: 6px 20px;
+            font-size: 14px;
+            display: block;
+            line-height: 2.4;
+            color: #3f4a56;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        li:hover {
+            background-color: #3582fb;
+            color: #FFFFFF;
+        }
+    }
     .shrewd_search_box {
-        float: right;
-
+        position: absolute;
+        right: 30px;
+        top: 10px;
+    }
+    .content_center {
+        margin-top: 60px;
     }
 </style>

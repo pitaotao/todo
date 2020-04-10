@@ -60,6 +60,9 @@ export interface StatusListInfo {
 export interface ShrewdNavInfo {
     name: string;
 }
+export interface LightweightNavInfo {
+    name: string;
+}
 
 
 // 我的
