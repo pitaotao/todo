@@ -11,7 +11,10 @@
                 <li v-for="(item, index) in bars" :key="index" @click="clickBar(index)" :class="{selectbars: index==current}"><i :class="item.icon"></i>{{item.name}}</li>
             </ul>
         </div>
-        <router-view></router-view>
+        <div style="width: 90%">
+            <router-view></router-view>
+        </div>
+
     </div>
 </template>
 
@@ -68,6 +71,7 @@
 <style scoped lang="less">
     .Personal {
         display: flex;
+        width: 100%;
     }
     .person_bar {
         margin-top: -2px;
@@ -75,7 +79,8 @@
         height: 100vh;
         background: #F1F1F1;
         float: left;
-        width: 180px;
+        /*width: 180px;*/
+        width: 10%;
         .person_bar_avatar_box {
             padding: 20px 10px;
             text-align: center;

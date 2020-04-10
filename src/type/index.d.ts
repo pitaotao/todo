@@ -80,3 +80,14 @@ export interface BasicInfo {
 export interface AccountSecurityInfo {
     pass: string;
 }
+export interface FeedbackTimeInfo {
+    name: string;
+}
+export interface FeedTableInfo {
+    desc: string;
+    status: string;
+    time: string;
+}
+export interface SubmitFeedbackInfo {
+    problem: string;
+}
