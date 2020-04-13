@@ -76,11 +76,31 @@
                     <el-tabs v-model="activeName" @tab-click="handleClick">
                         <el-tab-pane label="所有" name="1">
                             <ul class="bord_template_detail">
-                                <li><div class="template-thumb"><div class="template-bg"></div><div class="template-bg-mask"></div><div class="template-name">空白模板</div></div></li>
-                                <li><div class="template-thumb"><div class="template-bg"></div><div class="template-bg-mask"></div><div class="template-name">需求管理</div></div></li>
-                                <li><div class="template-thumb"><div class="template-bg"></div><div class="template-bg-mask"></div><div class="template-name">bug 管理</div></div></li>
-                                <li><div class="template-thumb"><div class="template-bg"></div><div class="template-bg-mask"></div><div class="template-name">设计管理</div></div></li>
-                                <li><div class="template-thumb"><div class="template-bg"></div><div class="template-bg-mask"></div><div class="template-name">敏捷看板</div></div></li>
+                                <li>
+                                    <div class="template-thumb">
+                                        <div class="template-bg"></div>
+                                        <div class="template-bg-mask"></div>
+                                        <div class="template-name">空白模板</div>
+                                    </div>
+                                    <div class="icon-template_selected">
+                                        <i class="el-icon-check"></i>
+                                    </div>
+                                    <div class="template-preview">预览</div>
+                                </li>
+                                <li>
+                                    <div class="template-thumb">
+                                        <div class="template-bg"></div>
+                                        <div class="template-bg-mask"></div>
+                                        <div class="template-name">需求管理</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="template-thumb">
+                                        <div class="template-bg"></div>
+                                        <div class="template-bg-mask"></div>
+                                        <div class="template-name">设计管理</div>
+                                    </div>
+                                </li>
                             </ul>
                         </el-tab-pane>
                         <el-tab-pane label="研发管理" name="2">配置管理</el-tab-pane>
@@ -415,6 +435,22 @@
                     width: 190px;
                     height: 118px;
                 }
+            }
+            .icon-template_selected {
+                i {
+
+                }
+            }
+            .template-preview {
+                display: none;
+            }
+        }
+        li:hover {
+            .template-preview {
+                color: #7daffc;
+                text-align: right;
+                font-size: 12px;
+                margin-top: 2px;
             }
         }
     }
