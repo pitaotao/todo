@@ -63,6 +63,9 @@ export interface ShrewdNavInfo {
 export interface LightweightNavInfo {
     name: string;
 }
+export interface TemplateFormInfo {
+    title: string;
+}
 
 
 // 我的
