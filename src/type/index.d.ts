@@ -66,6 +66,9 @@ export interface LightweightNavInfo {
 export interface TemplateFormInfo {
     title: string;
 }
+export interface TemplateDetailInfo {
+    name: string;
+}
 
 
 // 我的

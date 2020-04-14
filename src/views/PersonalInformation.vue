@@ -128,5 +128,6 @@
     .el-upload--picture-card {
         float: left;
         margin-right: 30px;
+        overflow: auto;
     }
 </style>

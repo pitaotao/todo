@@ -76,30 +76,16 @@
                     <el-tabs v-model="activeName" @tab-click="handleClick">
                         <el-tab-pane label="所有" name="1">
                             <ul class="bord_template_detail">
-                                <li>
+                                <li v-for="(item, index) in templateDetail" :key="index" @click="handleTemplateDetail(index)" :class="{detailSelect: index==current}">
                                     <div class="template-thumb">
-                                        <div class="template-bg"></div>
+                                        <div class="template-bg"><img src="../assets/Lightweight.jpg" alt=""></div>
                                         <div class="template-bg-mask"></div>
-                                        <div class="template-name">空白模板</div>
+                                        <div class="template-name">{{item.name}}</div>
                                     </div>
                                     <div class="icon-template_selected">
                                         <i class="el-icon-check"></i>
                                     </div>
                                     <div class="template-preview">预览</div>
-                                </li>
-                                <li>
-                                    <div class="template-thumb">
-                                        <div class="template-bg"></div>
-                                        <div class="template-bg-mask"></div>
-                                        <div class="template-name">需求管理</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="template-thumb">
-                                        <div class="template-bg"></div>
-                                        <div class="template-bg-mask"></div>
-                                        <div class="template-name">设计管理</div>
-                                    </div>
                                 </li>
                             </ul>
                         </el-tab-pane>
@@ -122,7 +108,7 @@
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-    import { LightweightNavInfo, TemplateFormInfo } from '@/type/index.d.ts';
+    import { LightweightNavInfo, TemplateFormInfo, TemplateDetailInfo } from '@/type/index.d.ts';
 
     @Component
     export default class Lightweight extends Vue {
@@ -132,9 +118,63 @@
         private bordName: string = '熟悉看板';
         private dialogFormVisible: boolean = false;
         private activeName: string = '1';
+        private current: number = 0;
         private templateForm: TemplateFormInfo = {
           title: '',
         };
+        private templateDetail: TemplateDetailInfo[] = [
+            {
+                name: '空白模板',
+            },
+            {
+                name: '需求管理',
+            },
+            {
+                name: 'bug管理',
+            },
+            {
+                name: '设计管理',
+            },
+            {
+                name: '敏捷看板',
+            },
+            {
+                name: '销售漏斗',
+            },
+            {
+                name: '市场活动',
+            },
+            {
+                name: '内容策划',
+            },
+            {
+                name: '用户反馈',
+            },
+            {
+                name: '招聘管理',
+            },
+            {
+                name: '新员工管理',
+            },
+            {
+                name: 'OKR管理',
+            },
+            {
+                name: '课程开发',
+            },
+            {
+                name: '周计划',
+            },
+            {
+                name: '任务跟进',
+            },
+            {
+                name: '零件制造',
+            },
+            {
+                name: '门店装修',
+            },
+        ];
         private navs: LightweightNavInfo[] = [
             {
                 name: '看板',
@@ -148,6 +188,9 @@
         ];
         private editBordName(): void {
             this.edit = true;
+        }
+        private handleTemplateDetail(index: number): void {
+            this.current = index;
         }
         private lightweightNav(index: number): void {
             this.idx = index;
@@ -395,10 +438,11 @@
         }
     }
     .bord_template_detail {
+        margin-left: 24px;
         li {
             float: left;
             margin-bottom: 18px;
-            margin-right: 10px;
+            margin-right: 25px;
             list-style: none;
             display: block;
             height: 125px;
@@ -416,10 +460,15 @@
                 position: relative;
                 cursor: default;
                 .template-bg {
-                    -webkit-transition: transform .5s;
                     width: 190px;
                     height: 118px;
-                    background-position: -786px -119px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        cursor: pointer;
+                        transition: all 0.6s;
+                    }
                 }
                 .template-bg-mask {
                     background-color: #000;
@@ -438,19 +487,46 @@
             }
             .icon-template_selected {
                 i {
-
+                    display: none;
                 }
             }
             .template-preview {
                 display: none;
+                text-align: right;
+                font-size: 12px;
+                margin-top: 2px;
+                color: #7daffc;
+                cursor: pointer;
+            }
+        }
+        .detailSelect {
+            border: 2px solid #3582fb;
+            width: 190px;
+            height: 118px;
+            cursor: default;
+            border-radius: 8px;
+            .icon-template_selected {
+                i {
+                    margin: -30px 0 0 160px;
+                    position: absolute;
+                    height: 30px;
+                    width: 30px;
+                    line-height: 38px;
+                    border-radius: 26px 0 0 0;
+                    display: block;
+                    text-align: center;
+                    font-size: 13px;
+                    color: #fff;
+                    background-color: #3582fb;
+                }
             }
         }
         li:hover {
             .template-preview {
-                color: #7daffc;
-                text-align: right;
-                font-size: 12px;
-                margin-top: 2px;
+                display: block;
+            }
+            img {
+                transform: scale(1.2);
             }
         }
     }
@@ -475,4 +551,5 @@
         height: 424px;
         padding-top: 10px;
     }
+
 </style>
