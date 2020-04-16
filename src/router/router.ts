@@ -14,7 +14,7 @@ const commonRouter = [
                 path: '/personal',
                 name: 'Personal',
                 component: () => import('@/views/Personal.vue'),
-                redirect: '/dynamic',
+                redirect: 'dynamic',
                 children: [
                     {path: 'dynamic', name: 'Dynamic', component: () => import('@/views/Dynamic.vue')},
                     {path: 'personSet', name: 'PersonSet', component: () => import('@/views/PersonSet.vue')},

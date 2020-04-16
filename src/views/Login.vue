@@ -49,10 +49,11 @@
             this.$router.push('/');
             const userInfo: UserInfo = {
                 email: this.params.email,
-                name: '',
+                password: this.params.password,
+                name: '屁桃',
                 defaultAvatar: false,
             };
-            this.saveUser(this.params);
+            this.saveUser(userInfo);
             localStorage.setItem('userInfo', JSON.stringify(userInfo));
             this.$Message.success('登录成功');
 

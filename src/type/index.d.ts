@@ -5,6 +5,7 @@ export interface LoginParams {
 }
 export interface UserInfo {
     email: string;
+    password: string;
     name: string;
     defaultAvatar: boolean;
 }

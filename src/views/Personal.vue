@@ -3,9 +3,9 @@
         <div class="person_bar">
             <div class="person_bar_avatar_box">
                 <div class="person_bar_avatar">
-                    <img src="https://www.tapd.cn/32667975/users/avatar/1442715240/jpg/0/middle?t=f981f785c12e8d40511b" alt="">
+                    <img :src="userAvatar" alt="">
                 </div>
-                <div class="person_bar_name">屁桃</div>
+                <div class="person_bar_name">{{name}}</div>
             </div>
             <ul>
                 <li v-for="(item, index) in bars" :key="index" @click="clickBar(index)" :class="{selectbars: index==current}"><i :class="item.icon"></i>{{item.name}}</li>
@@ -26,6 +26,8 @@
     export default class Personal extends Vue {
         private current: number = 0;
         private pjtid: any = '';
+        private name: string = '';
+        private userAvatar: string = '';
         private bars: PersonBarInfo[] = [
             {
                 icon: 'el-icon-data-analysis',
@@ -62,7 +64,17 @@
             }
         }
 
+        private created(): void {
+            const userInfo = localStorage.getItem('userInfo');
+            if (userInfo && userInfo !== 'undefined' && userInfo !== 'null') {
+                const useInfo = JSON.parse(userInfo);
+                this.name = useInfo.name;
+                if (!useInfo.defaultAvatar) {
+                    this.userAvatar = require('../assets/avatar.png');
+                }
+            }
 
+        }
 
 
     }
@@ -92,7 +104,7 @@
                     width: 100%;
                     height: 100%;
                     border-radius: 50%;
-                    border: 2px solid #fff;
+                    /*border: 2px solid #fff;*/
                 }
             }
             .person_bar_name {

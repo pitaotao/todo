@@ -113,11 +113,11 @@
         }
         private jumpPersonal(val: number): void {
             if (val === 1) {
-                this.$router.push({path: 'personal/dynamic'});
+                this.$router.push({path: '/personal/dynamic'});
             } else if (val === 2) {
-                this.$router.push({path: 'personal/personSet'});
+                this.$router.push({path: '/personal/personSet'});
             } else if (val === 3) {
-                this.$router.push({path: 'personal/problemFeedback'});
+                this.$router.push({path: '/personal/problemFeedback'});
             }
         }
         // 退出登录
@@ -137,7 +137,7 @@
             if (userInfo && userInfo !== 'undefined' && userInfo !== 'null') {
                 const useAvatarInfo = JSON.parse(userInfo);
                 this.avatar = useAvatarInfo.defaultAvatar;
-                console.log(this.avatar);
+                // console.log(this.avatar);
             }
         }
     }

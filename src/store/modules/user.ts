@@ -3,9 +3,11 @@ import * as types from '../types';
 const initPageState = () => {
     return {
         isLogin: false,  // 判断是否登录
-        userLogin: {  // 用户登录信息
+        UserInfo: {  // 用户登录信息
             email: '',
             password: '',
+            name: '',
+            defaultAvatar: false,
         },
     };
 };
@@ -13,9 +15,9 @@ const initPageState = () => {
 const user = {
   state: initPageState(),
   mutations: {
-      saveUser(state: object | any, userLogin: object | any): void {
+      saveUser(state: object | any, UserInfo: object | any): void {
           state.isLogin = true;
-          state.userLogin = userLogin;
+          state.UserInfo = UserInfo;
       },
   },
   actions: {
@@ -25,7 +27,7 @@ const user = {
   },
   getters: {
       isLogin(state: any): any {
-        if (state.userLogin.email !== '') {
+        if (state.UserInfo.email !== '') {
             return true;
         } else {
             return false;
