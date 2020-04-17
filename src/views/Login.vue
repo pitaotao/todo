@@ -50,6 +50,7 @@
             const userInfo: UserInfo = {
                 email: this.params.email,
                 password: this.params.password,
+                phone: '',
                 name: '屁桃',
                 defaultAvatar: false,
             };

@@ -33,6 +33,8 @@ import { Button,
   CheckboxGroup,
   Tabs,
   TabPane,
+  Collapse,
+  CollapseItem,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
@@ -76,6 +78,8 @@ Vue.component(CheckboxButton.name, CheckboxButton);
 Vue.component(CheckboxGroup.name, CheckboxGroup);
 Vue.component(Tabs.name, Tabs);
 Vue.component(TabPane.name, TabPane);
+Vue.component(Collapse.name, Collapse);
+Vue.component(CollapseItem.name, CollapseItem);
 Vue.component(CollapseTransition.name, CollapseTransition);
 
 Component.registerHooks([

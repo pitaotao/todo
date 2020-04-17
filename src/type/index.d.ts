@@ -6,6 +6,7 @@ export interface LoginParams {
 export interface UserInfo {
     email: string;
     password: string;
+    phone: string;
     name: string;
     defaultAvatar: boolean;
 }
@@ -100,4 +101,9 @@ export interface FeedTableInfo {
 }
 export interface SubmitFeedbackInfo {
     problem: string;
+}
+export interface ChangePasswordInfo {
+    oldPassword: string;
+    newPassword: string;
+    repeatPassword: string;
 }

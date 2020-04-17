@@ -6,6 +6,7 @@ const initPageState = () => {
         UserInfo: {  // 用户登录信息
             email: '',
             password: '',
+            phone: '',
             name: '',
             defaultAvatar: false,
         },
